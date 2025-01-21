@@ -4,8 +4,8 @@ Une plateforme d'analyse de contenu alimentée par l'intelligence artificielle p
 
 ## Documentation légale
 
-- [Conditions d'utilisation](https://[votre-compte].github.io/content-creator-ai/legal/terms-of-service.html)
-- [Politique de confidentialité](https://[votre-compte].github.io/content-creator-ai/legal/privacy-policy.html)
+- [Conditions d'utilisation](https://kraos026.github.io/content-creator-ai/legal/terms-of-service.html)
+- [Politique de confidentialité](https://kraos026.github.io/content-creator-ai/legal/privacy-policy.html)
 
 ## À propos
 
@@ -20,7 +20,7 @@ Content Creator AI est une application qui aide les créateurs de contenu à opt
 
 ## Installation
 
-1. Cloner le dépôt
+1. Cloner le dépôt : `git clone https://github.com/kraos026/content-creator-ai.git`
 2. Installer les dépendances : `pip install -r requirements.txt`
 3. Configurer les clés API dans le fichier `.env`
 4. Lancer l'application : `python run.py`
