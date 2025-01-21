@@ -1,0 +1,86 @@
+import pytest
+from datetime import datetime, timedelta
+from backend.app.collectors.base import BaseCollector
+
+class MockCollector(BaseCollector):
+    async def get_trending_topics(self):
+        return ["Python", "AI", "Web Development"]
+    
+    async def analyze_content(self, content_id: str):
+        return {
+            "engagement_rate": 15.5,
+            "views": 10000,
+            "likes": 1000,
+            "comments": 500,
+            "shares": 200
+        }
+    
+    async def get_content_history(self, days: int):
+        now = datetime.now()
+        return [
+            {
+                "posted_at": (now - timedelta(days=i)).isoformat(),
+                "engagement_rate": 10 + i,
+                "view_count": 1000 * i,
+                "comment_count": 100 * i,
+                "share_count": 50 * i,
+                "hashtags": ["python", "coding"],
+                "description": "Test video description"
+            }
+            for i in range(days)
+        ]
+    
+    async def get_content_analysis(self, content_id: str):
+        return {
+            "engagement_rate": 15.5,
+            "views": 10000,
+            "likes": 1000,
+            "comments": 500,
+            "shares": 200,
+            "sentiment": 0.8,
+            "topics": ["Python", "Programming", "Tutorial"]
+        }
+    
+    async def get_competitor_analysis(self, competitor_id: str):
+        return {
+            "engagement_rate": 12.5,
+            "followers": 50000,
+            "content_frequency": 3,
+            "top_content": [
+                {"id": "1", "engagement_rate": 20.5},
+                {"id": "2", "engagement_rate": 18.2}
+            ]
+        }
+    
+    async def get_audience_insights(self):
+        return {
+            "demographics": {
+                "age": {"18-24": 30, "25-34": 45},
+                "gender": {"male": 70, "female": 30}
+            },
+            "interests": ["Technology", "Programming", "Education"],
+            "active_times": {
+                "days": {"Monday": 15, "Friday": 20},
+                "hours": {"9": 10, "15": 15}
+            }
+        }
+    
+    async def generate_content_suggestions(self, category: str = None):
+        return [
+            {
+                "title": "10 Python Tips for Beginners",
+                "description": "Essential Python tips for new programmers",
+                "type": "tutorial",
+                "estimated_engagement": 15.5
+            },
+            {
+                "title": "Building an AI App with Python",
+                "description": "Step-by-step AI application tutorial",
+                "type": "tutorial",
+                "estimated_engagement": 18.2
+            }
+        ]
+
+@pytest.fixture
+def mock_collector():
+    return MockCollector()
