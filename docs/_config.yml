@@ -1,0 +1,5 @@
+plugins:
+  - jekyll-redirect-from
+
+# Enable 404 page
+permalink: pretty
